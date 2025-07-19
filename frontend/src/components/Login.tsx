@@ -30,7 +30,8 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
     try {
       const endpoint = isRegister ? '/api/auth/register' : '/api/auth/login';
-      const response = await fetch(`http://localhost:3001${endpoint}`, {
+      const response = await fetch(`https://chat-room-mgd8.onrender.com${endpoint}`, {
+      // const response = await fetch(`http://localhost:3001${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

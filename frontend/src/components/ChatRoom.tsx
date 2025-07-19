@@ -51,7 +51,8 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ user, onLogout }) => {
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3001');
+    const newSocket = io('https://chat-room-mgd8.onrender.com');
+    // const newSocket = io('http://localhost:3001');
     setSocket(newSocket);
 
     newSocket.on('connect', () => {
@@ -98,7 +99,8 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ user, onLogout }) => {
 
   const loadRooms = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/rooms');
+      // const response = await fetch('http://localhost:3001/api/rooms');
+      const response = await fetch('https://chat-room-mgd8.onrender.com/api/rooms');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -130,7 +132,8 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ user, onLogout }) => {
     });
 
     try {
-      const response = await fetch(`http://localhost:3001/api/messages/${room._id}`);
+      const response = await fetch(`https://chat-room-mgd8.onrender.com/api/messages/${room._id}`);
+      // const response = await fetch(`http://localhost:3001/api/messages/${room._id}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -190,7 +193,8 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ user, onLogout }) => {
 
   const createRoom = async (roomName: string) => {
     try {
-      const response = await fetch('http://localhost:3001/api/rooms', {
+      // const response = await fetch('http://localhost:3001/api/rooms', {
+      const response = await fetch('https://chat-room-mgd8.onrender.com/api/rooms', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
