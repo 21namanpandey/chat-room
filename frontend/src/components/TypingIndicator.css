@@ -1,0 +1,130 @@
+.typing-indicator {
+  padding: 8px 16px;
+  margin: 0 16px 8px 16px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.typing-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 123, 255, 0.05) 100%);
+  border-radius: 18px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 123, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.typing-avatar {
+  font-size: 16px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-3px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+.typing-text {
+  font-size: 12px;
+  color: #007bff;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.typing-dots span {
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  border-radius: 50%;
+  animation: typingBounce 1.4s infinite ease-in-out both;
+  box-shadow: 0 1px 3px rgba(0, 123, 255, 0.3);
+}
+
+.typing-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0s;
+}
+
+@keyframes typingBounce {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .typing-indicator {
+    margin: 0 12px 6px 12px;
+    padding: 6px 12px;
+  }
+  
+  .typing-content {
+    padding: 6px 10px;
+    border-radius: 16px;
+  }
+  
+  .typing-avatar {
+    font-size: 14px;
+  }
+  
+  .typing-text {
+    font-size: 11px;
+  }
+  
+  .typing-dots span {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .typing-indicator {
+    margin: 0 8px 4px 8px;
+  }
+  
+  .typing-content {
+    padding: 4px 8px;
+  }
+  
+  .typing-dots span {
+    width: 4px;
+    height: 4px;
+  }
+}
